@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:podcast_app/features/presentation/screens/favorites_screen.dart';
+import 'package:podcast_app/features/favorites/favorites_screen.dart';
 import 'package:podcast_app/features/presentation/screens/home_screen.dart';
 import 'package:podcast_app/features/presentation/screens/profile_screen.dart';
 import 'package:podcast_app/features/presentation/screens/sections_screen.dart';
