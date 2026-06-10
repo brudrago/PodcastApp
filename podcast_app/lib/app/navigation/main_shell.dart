@@ -1,32 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class PodcastPage extends StatefulWidget {
-  const PodcastPage({super.key});
+class MainShell extends StatelessWidget {
+  const MainShell({super.key, required this.navigationShell});
 
-  @override
-  State<PodcastPage> createState() => _PodcastPageState();
-}
-
-class _PodcastPageState extends State<PodcastPage> {
-  int selectedIndex = 0;
-
-  final pages = [
-    const Center(child: Text('Início')),
-    const Center(child: Text('Quadros')),
-    const Center(child: Text('Favoritos')),
-    const Center(child: Text('Perfil')),
-  ];
+  final StatefulNavigationShell navigationShell;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[selectedIndex],
+      body: navigationShell,
       bottomNavigationBar: NavigationBar(
-        selectedIndex: selectedIndex,
+        selectedIndex: navigationShell.currentIndex,
         onDestinationSelected: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
+          navigationShell.goBranch(index);
         },
         destinations: const [
           NavigationDestination(
