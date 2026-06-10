@@ -13,6 +13,7 @@ class _PodcastPageState extends State<PodcastPage> {
   final pages = [
     const Center(child: Text('Início')),
     const Center(child: Text('Quadros')),
+    const Center(child: Text('Favoritos')),
     const Center(child: Text('Perfil')),
   ];
 
@@ -33,9 +34,11 @@ class _PodcastPageState extends State<PodcastPage> {
             selectedIcon: Icon(Icons.home),
             label: 'Início',
           ),
+          NavigationDestination(icon: Icon(Icons.grid_view), label: 'Quadros'),
           NavigationDestination(
-            icon: Icon(Icons.fitness_center),
-            label: 'Quadros',
+            icon: Icon(Icons.favorite_border),
+            selectedIcon: Icon(Icons.favorite),
+            label: 'Favoritos',
           ),
           NavigationDestination(
             icon: Icon(Icons.person_outline),
