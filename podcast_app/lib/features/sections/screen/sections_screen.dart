@@ -47,7 +47,10 @@ class SectionsScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final section = sections[index];
 
-                  return SectionCard(section: section);
+                  return SectionCard(
+                    section: section,
+                    onTap: () => print('Tapped: ${section.title}'),
+                  );
                 },
               ),
             ),
