@@ -36,10 +36,7 @@ class FavoriteEpisodeTile extends StatelessWidget {
             child: SizedBox(
               width: 80,
               height: 80,
-              child: CachedNetworkImage(
-                imageUrl: imageUrl,
-                fit: BoxFit.cover,
-              ),
+              child: CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover),
             ),
           ),
 

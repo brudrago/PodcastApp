@@ -1,15 +1,15 @@
 class Episode {
   final String id;
   final String title;
+  final String description;
+  final String status;
   final String imageUrl;
-  final bool isFavorite;
-  final String timestamp;
 
   const Episode({
     required this.id,
     required this.title,
+    required this.description,
+    required this.status,
     required this.imageUrl,
-    required this.isFavorite,
-    required this.timestamp,
   });
 }
