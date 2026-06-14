@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:podcast_app/features/details/screen/episode_details_screen.dart';
 import 'package:podcast_app/features/favorites/screen/favorites_screen.dart';
 import 'package:podcast_app/features/presentation/screens/home_screen.dart';
 import 'package:podcast_app/features/presentation/screens/profile_screen.dart';
@@ -49,6 +50,17 @@ final appRouter = GoRouter(
               path: '/profile',
               builder: (context, state) {
                 return const ProfileScreen();
+              },
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/episode-details',
+              builder: (context, state) {
+                final id = state.uri.queryParameters['id'] ?? '';
+                return EpisodeDetailsScreen(id: id);
               },
             ),
           ],

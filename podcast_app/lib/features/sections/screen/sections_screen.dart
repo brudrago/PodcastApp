@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:podcast_app/features/sections/models/section_item.dart';
 import '../widgets/section_card.dart';
 
@@ -6,12 +7,42 @@ class SectionsScreen extends StatelessWidget {
   const SectionsScreen({super.key});
 
   final sections = const [
-    SectionItem(title: 'Luz Acesa', emoji: '👻', color: Colors.red),
-    SectionItem(title: 'Cadeirada', emoji: '🪑', color: Colors.teal),
-    SectionItem(title: 'Picolé de Limão', emoji: '🟩', color: Colors.orange),
-    SectionItem(title: 'Meu Erro', emoji: '⚖️', color: Colors.grey),
-    SectionItem(title: 'Amor nas Redes', emoji: '💌', color: Colors.pink),
-    SectionItem(title: 'Mico Meu', emoji: '🐵', color: Colors.amber),
+    SectionItem(
+      title: 'Luz Acesa',
+      emoji: '👻',
+      color: Colors.red,
+      id: 'Luz Acesa',
+    ),
+    SectionItem(
+      title: 'Cadeirada',
+      emoji: '🪑',
+      color: Colors.teal,
+      id: 'Cadeirada',
+    ),
+    SectionItem(
+      title: 'Picolé de Limão',
+      emoji: '🟩',
+      color: Colors.orange,
+      id: 'Picolé de Limão',
+    ),
+    SectionItem(
+      title: 'Meu Erro',
+      emoji: '⚖️',
+      color: Colors.grey,
+      id: 'Meu Erro',
+    ),
+    SectionItem(
+      title: 'Amor nas Redes',
+      emoji: '💌',
+      color: Colors.pink,
+      id: 'Amor nas Redes',
+    ),
+    SectionItem(
+      title: 'Mico Meu',
+      emoji: '🐵',
+      color: Colors.amber,
+      id: 'Mico Meu',
+    ),
   ];
 
   @override
@@ -49,7 +80,7 @@ class SectionsScreen extends StatelessWidget {
 
                   return SectionCard(
                     section: section,
-                    onTap: () => print('Tapped: ${section.title}'),
+                    onTap: () => context.go('/episode-details?id=${section.id}'),
                   );
                 },
               ),
