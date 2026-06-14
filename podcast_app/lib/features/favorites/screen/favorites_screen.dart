@@ -17,6 +17,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       description: 'Aprenda Flutter vindo de UIKit.',
       status: 'Ouvido',
       imageUrl: 'https://picsum.photos/200',
+      isFavorite: true,
     ),
     const Episode(
       id: '2',
@@ -24,6 +25,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       description: 'Clean Architecture no mundo mobile.',
       status: 'Não ouvido',
       imageUrl: 'https://picsum.photos/201',
+      isFavorite: true,
     ),
   ];
 
@@ -37,10 +39,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           final episode = favorites[index];
 
           return FavoriteEpisodeTile(
-            title: episode.title,
-            description: episode.description,
-            status: episode.status,
-            imageUrl: episode.imageUrl,
+            episode: episode,
             onFavoriteTap: () {
               setState(() {
                 favorites.removeAt(index);

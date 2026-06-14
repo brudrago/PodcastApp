@@ -1,20 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:podcast_app/features/favorites/models/episode.dart';
 
 class FavoriteEpisodeTile extends StatelessWidget {
   const FavoriteEpisodeTile({
     super.key,
-    required this.title,
-    required this.description,
-    required this.status,
-    required this.imageUrl,
+    required this.episode,
     required this.onFavoriteTap,
   });
 
-  final String title;
-  final String description;
-  final String status;
-  final String imageUrl;
+  final Episode episode;
   final VoidCallback onFavoriteTap;
 
   @override
@@ -37,11 +32,13 @@ class FavoriteEpisodeTile extends StatelessWidget {
               width: 80,
               height: 80,
               child: CachedNetworkImage(
-                imageUrl: imageUrl,
+                imageUrl: episode.imageUrl,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => const ColoredBox(
                   color: Color(0xFFE0E0E0),
-                  child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                  child: Center(
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  ),
                 ),
                 errorWidget: (context, url, error) => const ColoredBox(
                   color: Color(0xFFE0E0E0),
@@ -58,7 +55,7 @@ class FavoriteEpisodeTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  episode.title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleMedium,
@@ -67,7 +64,7 @@ class FavoriteEpisodeTile extends StatelessWidget {
                 const SizedBox(height: 4),
 
                 Text(
-                  description,
+                  episode.description,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyMedium,
@@ -75,14 +72,17 @@ class FavoriteEpisodeTile extends StatelessWidget {
 
                 const SizedBox(height: 8),
 
-                Text(status, style: Theme.of(context).textTheme.bodySmall),
+                Text(episode.status, style: Theme.of(context).textTheme.bodySmall),
               ],
             ),
           ),
 
           IconButton(
             onPressed: onFavoriteTap,
-            icon: const Icon(Icons.favorite, color: Colors.red),
+            icon: Icon(
+              episode.isFavorite ? Icons.favorite : Icons.favorite_border,
+              color: episode.isFavorite ? Colors.red : Colors.grey,
+            ),
           ),
         ],
       ),
