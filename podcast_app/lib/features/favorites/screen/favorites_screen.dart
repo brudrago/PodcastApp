@@ -33,21 +33,35 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Favoritos')),
-      body: ListView.builder(
-        itemCount: favorites.length,
-        itemBuilder: (context, index) {
-          final episode = favorites[index];
+      body: favorites.isEmpty
+          ? const Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.favorite_border, size: 64, color: Colors.grey),
+                  SizedBox(height: 16),
+                  Text(
+                    'Nenhum favorito ainda',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                ],
+              ),
+            )
+          : ListView.builder(
+              itemCount: favorites.length,
+              itemBuilder: (context, index) {
+                final episode = favorites[index];
 
-          return FavoriteEpisodeTile(
-            episode: episode,
-            onFavoriteTap: () {
-              setState(() {
-                favorites.removeAt(index);
-              });
-            },
-          );
-        },
-      ),
+                return FavoriteEpisodeTile(
+                  episode: episode,
+                  onFavoriteTap: () {
+                    setState(() {
+                      favorites.removeAt(index);
+                    });
+                  },
+                );
+              },
+            ),
     );
   }
 }
