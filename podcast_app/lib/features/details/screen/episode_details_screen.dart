@@ -9,19 +9,21 @@ class EpisodeDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF181A24),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF181A24),
+        foregroundColor: Colors.white,
+        elevation: 0,
+        title: const Text('Detalhes do Episódio'),
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(24, 32, 24, 24),
+            Padding(
+              padding: const EdgeInsets.all(24),
               child: Text(
-                'Detalhes do Episódio',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                ),
+                'ID: $id',
+                style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
             ),
           ],

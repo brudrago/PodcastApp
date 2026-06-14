@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:podcast_app/features/sections/models/section_item.dart';
 import '../widgets/section_card.dart';
+import 'package:go_router/go_router.dart';
 
 class SectionsScreen extends StatelessWidget {
   const SectionsScreen({super.key});
@@ -80,7 +80,7 @@ class SectionsScreen extends StatelessWidget {
 
                   return SectionCard(
                     section: section,
-                    onTap: () => context.go('/episode-details?id=${section.id}'),
+                    onTap: () => context.push('/sections/${section.id}'),
                   );
                 },
               ),
