@@ -36,7 +36,18 @@ class FavoriteEpisodeTile extends StatelessWidget {
             child: SizedBox(
               width: 80,
               height: 80,
-              child: CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover),
+              child: CachedNetworkImage(
+                imageUrl: imageUrl,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => const ColoredBox(
+                  color: Color(0xFFE0E0E0),
+                  child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                ),
+                errorWidget: (context, url, error) => const ColoredBox(
+                  color: Color(0xFFE0E0E0),
+                  child: Icon(Icons.broken_image_outlined, color: Colors.grey),
+                ),
+              ),
             ),
           ),
 
