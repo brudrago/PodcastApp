@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:podcast_app/app/UI/app_theme.dart';
 import 'package:podcast_app/app/router/app_router.dart';
-import 'package:podcast_app/app/theme_controller.dart';
+import 'package:podcast_app/app/UI/theme_controller.dart';
 
 class PodcastApp extends StatefulWidget {
   const PodcastApp({super.key});

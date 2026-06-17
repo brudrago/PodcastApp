@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:podcast_app/app/theme_controller.dart';
+import 'package:podcast_app/app/UI/theme_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

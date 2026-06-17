@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:podcast_app/app/theme_controller.dart';
 import 'package:podcast_app/features/sections/models/section_item.dart';
 import '../widgets/section_card.dart';
 import 'package:go_router/go_router.dart';
@@ -48,8 +47,6 @@ class SectionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeController = ThemeController.of(context);
-
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
