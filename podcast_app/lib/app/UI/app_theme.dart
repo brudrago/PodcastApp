@@ -16,6 +16,9 @@ sealed class PodcastAppTheme {
       foregroundColor: PodcastAppColors.black,
       elevation: 0,
     ),
+    navigationBarTheme: const NavigationBarThemeData(
+      indicatorColor: PodcastAppColors.primary,
+    ),
     textTheme: const TextTheme(
       headlineLarge: TextStyle(
         color: PodcastAppColors.black,
@@ -40,6 +43,9 @@ sealed class PodcastAppTheme {
       backgroundColor: PodcastAppColors.darkBackground,
       foregroundColor: PodcastAppColors.white,
       elevation: 0,
+    ),
+    navigationBarTheme: const NavigationBarThemeData(
+      indicatorColor: PodcastAppColors.primary,
     ),
     textTheme: const TextTheme(
       headlineLarge: TextStyle(

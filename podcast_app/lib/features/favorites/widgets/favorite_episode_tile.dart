@@ -14,14 +14,20 @@ class FavoriteEpisodeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: const [
-          BoxShadow(blurRadius: 4, offset: Offset(0, 2), color: Colors.black12),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+            color: colorScheme.shadow.withValues(alpha: 0.12),
+          ),
         ],
       ),
       child: Row(
@@ -34,15 +40,18 @@ class FavoriteEpisodeTile extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: episode.imageUrl,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => const ColoredBox(
-                  color: Color(0xFFE0E0E0),
-                  child: Center(
+                placeholder: (context, url) => ColoredBox(
+                  color: colorScheme.surfaceContainerHighest,
+                  child: const Center(
                     child: CircularProgressIndicator(strokeWidth: 2),
                   ),
                 ),
-                errorWidget: (context, url, error) => const ColoredBox(
-                  color: Color(0xFFE0E0E0),
-                  child: Icon(Icons.broken_image_outlined, color: Colors.grey),
+                errorWidget: (context, url, error) => ColoredBox(
+                  color: colorScheme.surfaceContainerHighest,
+                  child: Icon(
+                    Icons.broken_image_outlined,
+                    color: colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ),
             ),
@@ -72,7 +81,10 @@ class FavoriteEpisodeTile extends StatelessWidget {
 
                 const SizedBox(height: 8),
 
-                Text(episode.status, style: Theme.of(context).textTheme.bodySmall),
+                Text(
+                  episode.status,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ],
             ),
           ),
@@ -81,7 +93,9 @@ class FavoriteEpisodeTile extends StatelessWidget {
             onPressed: onFavoriteTap,
             icon: Icon(
               episode.isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: episode.isFavorite ? Colors.red : Colors.grey,
+              color: episode.isFavorite
+                  ? colorScheme.primary
+                  : colorScheme.onSurfaceVariant,
             ),
           ),
         ],
