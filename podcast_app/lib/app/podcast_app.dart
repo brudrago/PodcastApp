@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/app/UI/app_theme.dart';
 import 'package:podcast_app/app/router/app_router.dart';
 import 'package:podcast_app/app/theme_controller.dart';
 
@@ -27,10 +28,8 @@ class _PodcastAppState extends State<PodcastApp> {
         title: 'Podcast App',
         debugShowCheckedModeBanner: false,
         themeMode: themeMode,
-        theme: ThemeData.light(),
-        darkTheme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: const Color(0xFF181A24),
-        ),
+        theme: PodcastAppTheme.light,
+        darkTheme: PodcastAppTheme.dark,
         routerConfig: appRouter,
       ),
     );
