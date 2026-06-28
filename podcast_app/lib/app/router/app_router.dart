@@ -5,14 +5,19 @@ import 'package:podcast_app/features/favorites/screen/favorites_screen.dart';
 import 'package:podcast_app/features/presentation/screens/home_screen.dart';
 import 'package:podcast_app/features/presentation/screens/profile_screen.dart';
 import 'package:podcast_app/features/sections/screen/sections_screen.dart';
+import 'package:podcast_app/features/splash/screen/splash_screen.dart';
 import '../navigation/main_shell.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final appRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '/home',
+  initialLocation: '/splash',
   routes: [
+    GoRoute(
+      path: '/splash',
+      builder: (context, state) => const SplashScreen(),
+    ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return MainShell(navigationShell: navigationShell);

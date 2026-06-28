@@ -27,6 +27,12 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
+flutter_native_splash:
+  color: "#181A24"
+  color_dark: "#181A24"
+  android: true
+  ios: true
+
 dependencies:
   flutter:
     sdk: flutter
@@ -37,6 +43,7 @@ dependencies:
   go_router: ^16.0.0
   cached_network_image: ^3.4.1
   dio: ^5.9.0
+  flutter_native_splash: ^2.4.3
 
 dev_dependencies:
   flutter_test:
